@@ -5,7 +5,7 @@ const MessRouter = express.Router();
 
 MessRouter.get("/", async (req, res) => {
   const datas = await MessModel.find();
-  res.send(datas);
+  res.send({ datas });
 });
 
 MessRouter.post("/create", async (req, res) => {
