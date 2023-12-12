@@ -1,24 +1,23 @@
 const express = require("express");
 const { connection } = require("./db");
-const { ChatRouter } = require("./Routes/MessRoute");
 const cors = require("cors");
-const app = express();
+const { UserRoute } = require("./Routes/user.route");
 
+const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("Home_Page");
+  res.send("home page");
 });
+app.use("/chat", UserRoute);
 
-app.use("/mess", ChatRouter);
-
-app.listen(8080, async () => {
+app.listen(1000, async () => {
   try {
     await connection;
-    console.log("server 8080");
+    console.log("server");
   } catch (error) {
     console.log(error);
   }
-
-  console.log("8080");
+  console.log("1000");
 });
