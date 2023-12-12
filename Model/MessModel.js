@@ -9,6 +9,6 @@ const messSchema = mongoose.Schema(
   }
 );
 
-const MessModel = mongoose.model("data", messSchema);
+const MessModel = mongoose.model("message", messSchema);
 
 module.exports = { MessModel };
