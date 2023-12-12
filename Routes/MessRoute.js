@@ -1,17 +1,17 @@
 const express = require("express");
-const { MessModel } = require("../Model/MessModel");
+const { ChatModel } = require("../Model/MessModel");
 
-const MessRouter = express.Router();
+const ChatRouter = express.Router();
 
-MessRouter.get("/", async (req, res) => {
-  const datas = await MessModel.find();
+ChatRouter.get("/", async (req, res) => {
+  const datas = await ChatModel.find();
   res.status(200).send({ datas });
 });
 
-MessRouter.post("/create", async (req, res) => {
+ChatRouter.post("/create", async (req, res) => {
   const payload = req.body;
   try {
-    const data = new MessModel(payload);
+    const data = new ChatModel(payload);
     await data.save();
     res.send({ msg: "create data add" });
   } catch (error) {
@@ -19,4 +19,4 @@ MessRouter.post("/create", async (req, res) => {
   }
 });
 
-module.exports = { MessRouter };
+module.exports = { ChatRouter };

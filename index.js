@@ -1,6 +1,6 @@
 const express = require("express");
 const { connection } = require("./db");
-const { MessRouter } = require("./Routes/MessRoute");
+const { ChatRouter } = require("./Routes/MessRoute");
 const cors = require("cors");
 const app = express();
 
@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send("Home_Page");
 });
 
-app.use("/mess", MessRouter);
+app.use("/mess", ChatRouter);
 
 app.listen(8080, async () => {
   try {
